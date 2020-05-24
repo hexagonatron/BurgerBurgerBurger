@@ -3,9 +3,16 @@ module.exports = (sequelize, DataTypes) => {
         "Burger", {
             name: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false,
+                validate: {
+                    len: [1,100]
+                }
             },
             devoured: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
+            },
+            deleted: {
                 type: DataTypes.BOOLEAN,
                 defaultValue: false
             }

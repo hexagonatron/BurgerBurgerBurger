@@ -7,16 +7,14 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const db = require("./models/index");
+const routes = require("./controllers/routes");
 
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-const routes = require("./controllers/routes");
-
+app.use(express.static('public'));
 app.use(routes);
-
-app.use(express.urlencoded({extended: true}));
 
 db.sequelize.sync({}).then(function() {
     app.listen(PORT, function() {

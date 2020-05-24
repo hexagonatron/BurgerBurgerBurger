@@ -1,28 +1,38 @@
 <div class="container">
-    <section>
-        <div class="not-eaten">
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome to Burger Burger Burger!</h1>
+        <hr class="my-4">
+        <p>Enter the type of burger you'd like to eat and hit submit. When you're ready to eat it press the devour
+            button
+        </p>
+        <i class="fas fa-hamburger text-center hero-icon col-12"></i>
+    </div>
+    <section class="d-flex flex-row justify-content-around row">
+        <div class="not-eaten col-6">
             {{#each burgers}}
-                {{#unless dataValues.devoured}}
-                    <form action="/api/devour/{{dataValues.id}}" method="POST">
-                    <h1>{{dataValues.name}}</h1>
-                    <input type="submit" class="btn btn-danger"  value="Devour?">
-                    </form>
-                {{/unless}}
+            {{#unless devoured}}
+            <form action="/api/devour/{{id}}" method="POST">
+                <h3>{{name}}
+                    <input type="submit" class="btn btn-primary ml-3" value="Devour?">
+                </h3>
+            </form>
+            {{/unless}}
             {{/each}}
-            
+
         </div>
-        <div class="eaten">
+        <div class="eaten col-6">
             {{#each burgers}}
-                {{#if dataValues.devoured}}
-                    <h1>{{dataValues.name}}</h1>
-                {{/if}}
+            {{#if devoured}}
+            <h3>{{name}}</h3>
+            {{/if}}
             {{/each}}
         </div>
     </section>
-    <section>
-        <form action="/api/burger" method="POST">
-            <input type="text" name="name" placeholder="What type of burger would you like to eat?">
-            <input type="submit" class="btn btn-primary" value="Submit">
+    <section class="d-flex flex-row justify-content-center align-items-stretch mt-5">
+        <form action="/api/burger" method="POST" class="row col-12 d-flex justify-content-center">
+            <input class="form-control form-control-lg col-6" type="text" name="name"
+                placeholder="What type of burger would you like to eat?">
+            <input type="submit" class="btn btn-primary col-2 ml-2" value="Submit">
         </form>
     </section>
 
