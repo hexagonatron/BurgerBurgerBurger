@@ -1,0 +1,26 @@
+{
+  "name": "burgerburgerburger",
+  "version": "1.0.0",
+  "description": "An app that lets you add and devour burgers",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexagonatron/BurgerBurgerBurger.git"
+  },
+  "author": "Ben Fawcett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hexagonatron/BurgerBurgerBurger/issues"
+  },
+  "homepage": "https://github.com/hexagonatron/BurgerBurgerBurger#readme"
+}
