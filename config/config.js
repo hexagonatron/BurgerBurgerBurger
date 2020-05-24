@@ -5,6 +5,7 @@ module.exports = {
     "password": process.env.MYSQL_PASSWORD,
     "database": "burgerdb",
     "host": process.env.MYSQL_HOST,
+    "port": process.env.MYSQL_PORT,
     "dialect": "mysql",
     "operatorsAliases": false
   },
