@@ -1,15 +1,29 @@
 <div class="container">
     <section>
         <div class="not-eaten">
-            {{{burgers}}}
+            {{#each burgers}}
+                {{#unless dataValues.devoured}}
+                    <form action="/api/devour/{{dataValues.id}}" method="POST">
+                    <h1>{{dataValues.name}}</h1>
+                    <input type="submit" class="btn btn-danger"  value="Devour?">
+                    </form>
+                {{/unless}}
+            {{/each}}
+            
         </div>
         <div class="eaten">
-            {{{burgersEaten}}}
+            {{#each burgers}}
+                {{#if dataValues.devoured}}
+                    <h1>{{dataValues.name}}</h1>
+                {{/if}}
+            {{/each}}
         </div>
     </section>
     <section>
-        <input type="text" placeholder="What type of burger would you like to eat?">
-        <input type="button" class="btn btn-primary"value="Submit">
+        <form action="/api/burger" method="POST">
+            <input type="text" name="name" placeholder="What type of burger would you like to eat?">
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
     </section>
 
 </div>
