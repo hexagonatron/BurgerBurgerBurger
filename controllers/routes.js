@@ -1,11 +1,12 @@
 const express = require("express");
 const path = require("path");
+const db = require("../models/index");
 
 const router = express.Router();
 
 //Render index with all burgers in DB
 router.get("/", (req, res) => {
-    Burger.all((data) => {
+    db.Burger.findAll({}).then((data) => {
         const allBurgers = {
             burgers: data
         }
@@ -15,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/api/burgers", (req, res) => {
-
+    res.send();
 });
 
 
